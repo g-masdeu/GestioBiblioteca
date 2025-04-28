@@ -27,5 +27,16 @@ public class GestorBiblioteca {
             System.out.println("Aquest llibre ja està prestat.");
         }
     }
+
+    public void consultarHistorial(Usuari usuari) {
+        System.out.println("Historial de llibres prestats per " + usuari.getNom()+ ":");
+        if (usuari.getLlibresPrestats().isEmpty()) {
+            System.out.println("No ha prestat cap llibre");
+        }else {
+            for (int i = 0; i < usuari.getLlibresPrestats().size(); i++) {
+                System.out.println("- " + usuari.getLlibresPrestats().get(i));
+            }
+        }
+    }
     public List<Prestec> getPrestecs() { return prestecs;}
 }
