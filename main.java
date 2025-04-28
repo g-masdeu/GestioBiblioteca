@@ -2,7 +2,7 @@
  * Codi per provar la gestió de la biblioteca
  */
 
- public class main {
+public class Main {
     public static void main(String[] args) {
     Biblioteca biblioteca = new Biblioteca();
     Llibre llibre1 = new Llibre("1984", "George Orwell");
