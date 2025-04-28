@@ -14,3 +14,4 @@ public class Main {
     gestor.prestarLlibre(usuari, llibre1);
     }
 }
+
