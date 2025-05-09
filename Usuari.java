@@ -1,6 +1,8 @@
 /*
  * Classe Usuari -> Classe que representa un Usuari de la biblioteca
  */
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,5 +40,15 @@ public class Usuari {
     // Retornar Llibre -> Funció que elimina un llibre de la llista de llibres prestats -------------------------
     public void retornarLlibre(Llibre llibre) { 
         llibresPrestats.remove(llibre); 
+    }
+
+    // Afegir Usuari -> funció que guarda al fitxer el nou usuari
+    public void afegirUsuari() {
+        try (FileWriter fitxer = new FileWriter("usuaris.txt", true)) {
+            fitxer.write(this.getNom() + "\n");
+            fitxer.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
     }
 }

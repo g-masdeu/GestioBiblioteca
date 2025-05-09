@@ -10,14 +10,11 @@ public class Main {
         Biblioteca biblioteca = new Biblioteca();
         GestorBiblioteca gestor = new GestorBiblioteca();
         Scanner scanner = new Scanner(System.in);
+        Usuaris usuaris = new Usuaris();
 
         // Recuperem les dades de llibres i usuaris
-        Usuari usuari = new Usuari("Carla");
-
-        // Afegim llibres
-        biblioteca.afegirLlibre(new Llibre("1984", "George Orwell","ciencia"));
-        biblioteca.afegirLlibre(new Llibre("El petit príncep", "Antonie de Saint-Exupéry","Aventura"));
-        biblioteca.afegirLlibre(new Llibre("Crim i càstig", "Fiódor Dostoiveski","Ficcion"));
+        usuaris.recuperarUsuaris();
+        biblioteca.recuperarLlibres();
 
         int opcio;
 
@@ -25,11 +22,12 @@ public class Main {
         do {
             System.out.println("\n--- MENÚ ---");
             System.out.println("1. Llistar llibres");
-            System.out.println("2. Buscar llibre");
-            System.out.println("3. Prestar llibre");
-            System.out.println("4. Afegir llibre");
-            System.out.println("5. Afegir usuari");
-            System.out.println("6. Sortir");
+            System.out.println("2. Llistar usuaris");
+            System.out.println("3. Buscar llibre");
+            System.out.println("4. Prestar llibre");
+            System.out.println("5. Afegir llibre");
+            System.out.println("6. Afegir usuari");
+            System.out.println("7. Sortir");
             System.out.print("Escull una opció: ");
             opcio = scanner.nextInt();
             scanner.nextLine();
@@ -43,7 +41,12 @@ public class Main {
                         System.out.println(biblioteca.getLlibres().get(i));
                     }
                     break;
-                case 2:
+
+                case 2: 
+                    //Mostrem els usuaris
+                    System.out.println(usuaris);
+                    break;
+                case 3:
                     // Busquem llibre pel títol
                     System.out.print("Titol del llibre: ");
                     String titolBuscar = scanner.nextLine();
@@ -55,18 +58,27 @@ public class Main {
                     }
                     break;
 
-                case 3:
+                case 4:
                     // Prestem llibre
-                    System.out.print("Titol del llibre a prestar: ");
-                    String titolPrestar = scanner.nextLine();
-                    Llibre llibreAPrestar = biblioteca.buscarLlibre(titolPrestar);
-                    if (llibreAPrestar == null) {
-                        System.out.println("Aquest llibre no existeix a la biblioteca.");
-                    }else{
-                        gestor.prestarLlibre(usuari, llibreAPrestar);
+                    // Nom de l'usuari
+                    System.out.println("Nom de l'usuari: ");
+                    String nom = scanner.nextLine();
+                    if (!usuaris.buscar(nom)) {
+                        System.out.println("No s'ha trobat l'usuari");
+                    } else {
+                        Usuari usuari = new Usuari(nom);
+                        System.out.print("Titol del llibre a prestar: ");
+                        String titolPrestar = scanner.nextLine();                    
+                        Llibre llibreAPrestar = biblioteca.buscarLlibre(titolPrestar);
+                        if (llibreAPrestar == null) {
+                            System.out.println("Aquest llibre no existeix a la biblioteca.");
+                        }else{
+                            gestor.prestarLlibre(usuari, llibreAPrestar);
+                        }
                     }
                     break;
-                case 4:
+
+                case 5:
                     // Afegim llibre
                     System.out.println("\nAfegir llibre");
                     System.out.print("Nom del llibre: ");
@@ -78,21 +90,23 @@ public class Main {
                     biblioteca.afegirLlibre(new Llibre(nomLlibre, autor, categoria));
                     break;
                 
-                case 5:
+                case 6:
                     // Afegim Usuari
                     System.out.println("\nAfegir Usuari:");
                     System.out.print("Nom usuari: ");
-                    usuari = new Usuari (scanner.nextLine());
+                    Usuari usuari = new Usuari (scanner.nextLine());
+                    usuari.afegirUsuari();
                     break;
+                
 
-                case 6:
+                case 7:
                     System.out.println("Fins aviat!");
                     break;
                 default:
                 System.out.println("Opció no vàlida.");
                     break;
             }
-        } while (opcio !=6);
+        } while (opcio !=7);
 
 
         scanner.close();
