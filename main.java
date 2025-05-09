@@ -1,8 +1,10 @@
 /*
  * Codi per provar la gestió de la biblioteca
  */
+import java.util.Scanner;
 
 public class main {
+
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         GestorBiblioteca gestor = new GestorBiblioteca();
