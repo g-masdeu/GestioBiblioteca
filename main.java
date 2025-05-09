@@ -13,7 +13,7 @@ public class Main {
 
         Usuari usuari = new Usuari("Carla");
 
-        biblioteca.afegirLlibre(new Llibre("1994", "George Orwell","ciencia"));
+        biblioteca.afegirLlibre(new Llibre("1984", "George Orwell","ciencia"));
         biblioteca.afegirLlibre(new Llibre("El petit príncep", "Antonie de Saint-Exupéry","Aventura"));
         biblioteca.afegirLlibre(new Llibre("Crim i càstig", "Fiódor Dostoiveski","Ficcion"));
 
