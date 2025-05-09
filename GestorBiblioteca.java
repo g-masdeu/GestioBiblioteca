@@ -8,7 +8,7 @@ public class GestorBiblioteca {
 
     public GestorBiblioteca() {
         this.prestecs = new ArrayList<>();
-    }
+    } 
 
     public void prestarLlibre(Usuari usuari, Llibre llibre) {
 

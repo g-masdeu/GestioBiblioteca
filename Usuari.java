@@ -1,6 +1,7 @@
 /*
  * Classe Usuari -> Classe que representa un Usuari de la biblioteca
  */
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,7 +43,9 @@ public class Usuari {
         llibresPrestats.remove(llibre); 
     }
 
+    
     // Afegir Usuari -> funció que guarda al fitxer el nou usuari
+    // No guarda els llibres que té de préstec
     public void afegirUsuari() {
         try (FileWriter fitxer = new FileWriter("usuaris.txt", true)) {
             fitxer.write(this.getNom() + "\n");

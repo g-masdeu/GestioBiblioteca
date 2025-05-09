@@ -95,7 +95,7 @@ public class Main {
                     System.out.println("\nAfegir Usuari:");
                     System.out.print("Nom usuari: ");
                     Usuari usuari = new Usuari (scanner.nextLine());
-                    usuari.afegirUsuari();
+                    usuaris.afegirUsuari(usuari);
                     break;
                 
 

@@ -3,6 +3,8 @@
  */
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -56,5 +58,13 @@ public class Usuaris {
         }
 
         return trobat;
+    }
+
+    
+    // Afegir Usuari -> funció que guarda al fitxer el nou usuari
+    // No guarda els llibres que té de préstec
+    public void afegirUsuari(Usuari usuari) {
+        usuaris.add(usuari);
+        usuari.afegirUsuari();
     }
 }
