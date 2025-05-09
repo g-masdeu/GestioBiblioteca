@@ -15,6 +15,7 @@ public class Main {
         // Recuperem les dades de llibres i usuaris
         usuaris.recuperarUsuaris();
         biblioteca.recuperarLlibres();
+        gestor.recuperarPrestecs();
 
         int opcio;
 
@@ -61,7 +62,7 @@ public class Main {
                 case 4:
                     // Prestem llibre
                     // Nom de l'usuari
-                    System.out.println("Nom de l'usuari: ");
+                    System.out.print("Nom de l'usuari: ");
                     String nom = scanner.nextLine();
                     if (!usuaris.buscar(nom)) {
                         System.out.println("No s'ha trobat l'usuari");
