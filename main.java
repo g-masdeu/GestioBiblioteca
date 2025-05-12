@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        
         // Declarem les variables
         Biblioteca biblioteca = new Biblioteca();
         GestorBiblioteca gestor = new GestorBiblioteca();

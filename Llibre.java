@@ -1,5 +1,3 @@
-import java.io.FileWriter;
-
 public class Llibre {
     private String titol;
     private String autor;
